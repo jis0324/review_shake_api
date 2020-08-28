@@ -4,9 +4,11 @@
     $ pip install -r requirements.txt
 
 # Input business urls
-    Move the resource folder. You can find google_business_queries.csv and yelp_business_urls.csv files.
- - input the google search query in google_business_queries.csv
- - input the yelp site url in yelp_business_urls.csv
+    Move the resource folder. You can find receicers.csv that has two fields - Receiver Email, Group Names.
+ - Receiver Email
+    please input email address that send the group reviews.
+ - Group Names
+    please input group names(separated comma)
 
 # Run script
     $ python script.py
