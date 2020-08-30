@@ -43,7 +43,7 @@ def get_group_reviews(group_id):
     today = datetime.date.today() 
     yesterday = today - datetime.timedelta(days = 1)
     url = "https://app.datashake.com/api/v2/profiles/job_groups/{}/reviews".format(group_id)
-    querystring = { "from_date" : '2020-08-01' }
+    querystring = { "from_date" : yesterday }
     response = requests.request("GET", url, headers=headers, params=querystring)
     response_dict = json.loads(response.text)
     reviews = response_dict["reviews"]
@@ -116,7 +116,7 @@ def send_email(reviews_list, group_name):
         print(traceback.print_exc())
     return
 
-
+# Main
 def main():
     # Get Groups (part 2 - 1,2)
     groups_list = get_groups()
@@ -125,13 +125,13 @@ def main():
     if groups_list:
 
         # Resync Groups (part 2 - 3)
-        # resync_groups(groups_list)
+        resync_groups(groups_list)
 
         for group in groups_list:
             # Get Group Reviews(part 2 - 4, 5)
             reviews_list = get_group_reviews(group["id"])
             
-            # Send Group reviews via email
+            # Send Group reviews via email(part 3)
             send_email(reviews_list, group["name"])
 
     
