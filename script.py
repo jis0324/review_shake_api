@@ -13,7 +13,7 @@ from email.mime.text import MIMEText
 base_dir = os.path.dirname(os.path.abspath(__file__))
 
 # review shake api token
-spiderman_token = "aeb256bfba92a5bdf5d2fb6c3866d25759ccb52c"
+spiderman_token = ""
 
 # review shake api header
 headers = {
